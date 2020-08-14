@@ -16,3 +16,5 @@ with open('C:/Users/russi/Downloads/pull_ip .txt', 'r') as inf:
         return data.most_common(5)
     
     print(most_common(pullIP))
+
+    # rusult: [('154.157.157.156', 1531), ('82.146.232.163', 1505), ('194.78.107.33', 1494), ('226.247.119.128', 1494), ('21.143.243.182', 1479)]
