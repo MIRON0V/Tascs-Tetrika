@@ -1,4 +1,4 @@
-﻿SELECT date(scheduled_time) AS ride_date, user_id, grade
+﻿SELECT date(scheduled_time) AS ride_date, user_id, ROUND((SUM(grade)/COUNT(user_id)),2) AS average_score
 
 FROM  (SELECT user_id, role, event_id
        FROM test_db.users INNER JOIN  test_db.participants
@@ -15,6 +15,6 @@ FROM  (SELECT user_id, role, event_id
        ON lessons.id = grades.lesson_id 
 
 WHERE subject = 'phys'
-#ORDER BY scheduled_time
-GROUP BY ride_date
+GROUP BY ride_date, user_id
 
+ORDER BY ride_date, average_score
